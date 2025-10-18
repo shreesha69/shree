@@ -27,12 +27,12 @@ const Skills = () => {
         <div className="w-full h-full bg-[radial-gradient(circle_at_20%_20%,_#93c5fd,_transparent_60%)] animate-wave"></div>
       </div>
 
+      {/* Main heading */}
       <h2 className="text-3xl font-bold text-center text-gradient mb-12 relative z-10">
         Skills
       </h2>
 
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 relative z-10">
-
         {/* Technical Skills */}
         <div>
           <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
@@ -68,7 +68,6 @@ const Skills = () => {
           </h3>
 
           <div className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow flex flex-col gap-6">
-            
             {/* Soft Skills */}
             <div>
               <div className="font-medium mb-2">Soft Skills</div>
@@ -98,7 +97,6 @@ const Skills = () => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>
