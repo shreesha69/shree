@@ -23,12 +23,12 @@ const Skills = () => {
       id="skills"
       className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-800"
     >
-      {/* Soft wave animation */}
+      {/* Background Animation */}
       <div className="absolute inset-0 -z-10 opacity-20">
         <div className="w-full h-full bg-[radial-gradient(circle_at_20%_20%,_#93c5fd,_transparent_60%)] animate-wave"></div>
       </div>
 
-      {/* Main heading */}
+      {/* Section Heading */}
       <h2 className="text-3xl font-bold text-center text-gradient mb-12 relative z-10">
         Skills
       </h2>
@@ -39,7 +39,7 @@ const Skills = () => {
           <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
             <Code className="w-5 h-5 text-blue-600" /> Technical Skills
           </h3>
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {technical.map((t) => {
               const Icon = t.icon;
               return (
@@ -97,6 +97,7 @@ const Skills = () => {
         </div>
       </div>
 
+      {/* Animations */}
       <style>
         {`
           @keyframes wave {
