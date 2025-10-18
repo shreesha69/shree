@@ -38,9 +38,17 @@ const Hero = () => {
 
         {/* Left Content */}
         <div className="order-2 md:order-1 flex-1 text-center md:text-left">
+
+          {/* Motivating Quote */}
+          <p className="text-xl sm:text-2xl md:text-3xl italic font-semibold text-gradient mb-6">
+            “Step into my world of code and creativity.”
+          </p>
+
+          {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             Hi, I’m <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500">Mukhashree</span>
           </h1>
+
           <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-6">
             Passionate about IT and the Japanese technology sector. I build reliable web apps, automate workflows, and enjoy crafting delightful user experiences.
           </p>
@@ -72,7 +80,7 @@ const Hero = () => {
             <div className="absolute inset-0 overflow-hidden rounded-3xl"
                  style={{ clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)' }}>
               <img
-                src="/assets/profile.png"
+                src="/assets/profile.jpg"
                 alt="Mukhashree"
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition duration-500"
               />
