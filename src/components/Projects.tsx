@@ -15,8 +15,8 @@ const projects: Project[] = [
     description: 'My personal portfolio built with React, Tailwind CSS, and deployed online.',
     tags: ['React', 'Tailwind', 'Vite'],
     image: '/assets/portfolio.png',
-    github: 'https://github.com/shreesha69/shree',
-    link: 'https://shree-portfolio.vercel.app', // Live Vercel link
+    github: 'https://github.com/private', // placeholder link
+    link: 'https://mukhashree-s.vercel.app/', // Live Vercel link
   },
   {
     title: 'Travel Website',
@@ -24,7 +24,7 @@ const projects: Project[] = [
     tags: ['React', 'CSS', 'API'],
     image: '/assets/travel-site.jpeg',
     github: 'https://github.com/shreesha69/Travel-site',
-    link: 'https://your-travel-website.com',
+    link: 'https://nihon-no-ryokou.vercel.app/', // Live Travel site
   },
 ];
 
@@ -77,6 +77,12 @@ const Projects = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-sm font-medium text-blue-600 dark:text-cyan-300 hover:underline"
+                    onClick={(e) => {
+                      if (p.title === 'Portfolio Website') {
+                        e.preventDefault();
+                        alert('🔒 This project repository is private.');
+                      }
+                    }}
                   >
                     <FiGithub /> Code
                   </a>
