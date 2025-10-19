@@ -38,19 +38,16 @@ const Hero = () => {
 
         {/* Left Content */}
         <div className="order-2 md:order-1 flex-1 text-center md:text-left">
-
-          {/* Motivating Quote */}
-          <p className="text-xl sm:text-2xl md:text-3xl italic font-semibold text-gradient mb-6">
+          <p className="text-xl sm:text-2xl md:text-3xl italic font-semibold text-gradient mb-6 quote-hover">
             “Step into my world of code and creativity.”
           </p>
 
-          {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             Hi, I’m <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500">Mukhashree</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-6">
-            Passionate about IT and the Japanese technology sector. I build reliable web apps, automate workflows, and enjoy crafting delightful user experiences.
+            Focused on delivering high-quality web solutions, automating workflows, and designing seamless user experiences, while pursuing my interest in the Japanese language and culture.
           </p>
 
           <div className="mb-6 text-xl">
@@ -64,25 +61,37 @@ const Hero = () => {
         </div>
 
         {/* Right Hexagon Photo */}
-        <div className="order-1 md:order-2 flex-shrink-0">
-          <div className="relative w-72 h-72 md:w-80 md:h-80 mx-auto">
-            
+        <div className="order-1 md:order-2 flex-shrink-0 relative">
+          <div className="relative w-72 h-72 md:w-80 md:h-80 mx-auto group">
+
+            {/* Hexagon Glow */}
+            <div
+              className="absolute inset-0 rounded-3xl blur-xl opacity-60 animate-pulse-slow pointer-events-none"
+              style={{
+                clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)',
+                background: 'conic-gradient(from 0deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
+              }}
+            />
+
             {/* Gradient Hexagon Border */}
-            <div className="absolute inset-0 pointer-events-none rounded-3xl"
-                 style={{
-                   clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)',
-                   background: 'conic-gradient(from 0deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
-                   padding: '4px'
-                 }}
+            <div
+              className="absolute inset-0 rounded-3xl"
+              style={{
+                clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)',
+                background: 'conic-gradient(from 0deg, #3b82f6, #06b6d4, #8b5cf6, #3b82f6)',
+                padding: '4px',
+              }}
             />
 
             {/* Hexagon Photo */}
-            <div className="absolute inset-0 overflow-hidden rounded-3xl"
-                 style={{ clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)' }}>
+            <div
+              className="absolute inset-0 overflow-hidden rounded-3xl transform transition duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:rotate-1"
+              style={{ clipPath: 'polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%)' }}
+            >
               <img
                 src="/assets/profile.jpg"
                 alt="Mukhashree"
-                className="w-full h-full object-cover object-center transform hover:scale-105 transition duration-500"
+                className="w-full h-full object-cover object-center"
               />
             </div>
 
@@ -90,6 +99,30 @@ const Hero = () => {
         </div>
 
       </div>
+
+      <style>
+        {`
+          @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+          }
+          .animate-pulse-slow {
+            animation: pulse-slow 6s ease-in-out infinite;
+          }
+
+          @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }
+          .quote-hover {
+            display: inline-block;
+            transition: transform 0.3s;
+          }
+          .quote-hover:hover {
+            animation: bounce 0.6s ease-in-out;
+          }
+        `}
+      </style>
     </section>
   );
 };

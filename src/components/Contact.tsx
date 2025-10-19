@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Github, Send, MailCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Github, Send, MailCheck, Download } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -35,8 +35,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative py-20 px-4 max-w-6xl mx-auto overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-100 via-cyan-100 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 animate-pulse-slow"></div>
+      {/* Background Glow */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-100 via-cyan-100 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 animate-pulse-slow rounded-3xl"></div>
 
       <h2 className="text-4xl sm:text-5xl font-extrabold text-center text-gradient mb-12 relative z-10">
         Contact Me
@@ -49,7 +49,7 @@ const Contact = () => {
             Get in Touch
           </h3>
           <p className="text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
-            Feel free to reach out via email or the contact form. I look forward to connecting with you.
+            Feel free to reach out via email, phone, LinkedIn, GitHub, or download my resume.
           </p>
 
           <div className="space-y-4">
@@ -60,8 +60,8 @@ const Contact = () => {
               { icon: <Linkedin className="w-5 h-5" />, value: 'linkedin.com/in/mukhashree-s-042aa5257', link: 'https://www.linkedin.com/in/mukhashree-s-042aa5257/' },
               { icon: <Github className="w-5 h-5" />, value: 'github.com/shreesha69', link: 'https://github.com/shreesha69' },
             ].map((c, i) => (
-              <div key={i} className="flex flex-wrap items-center gap-3 text-gray-700 dark:text-gray-200">
-                <div className="p-2 rounded-full bg-gradient-to-r from-blue-200 via-cyan-200 to-purple-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600">
+              <div key={i} className="flex items-center gap-3 text-gray-700 dark:text-gray-200 flex-wrap sm:flex-nowrap">
+                <div className="p-2 rounded-full bg-gradient-to-r from-blue-200 via-cyan-200 to-purple-200 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 flex-shrink-0">
                   {c.icon}
                 </div>
                 {c.link ? (
@@ -69,21 +69,31 @@ const Contact = () => {
                     href={c.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline break-words break-all font-medium"
+                    className="font-medium hover:underline break-words"
                   >
                     {c.value}
                   </a>
                 ) : (
-                  <span className="break-words break-all font-medium">{c.value}</span>
+                  <span className="font-medium break-words">{c.value}</span>
                 )}
               </div>
             ))}
+
+            {/* Resume Button */}
+            <a
+              href="/assets/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 text-white rounded-xl font-semibold hover:scale-[1.02] transition transform duration-300 shadow-md"
+            >
+              <Download className="w-5 h-5" />
+              Download Resume
+            </a>
           </div>
         </div>
 
         {/* Contact Form */}
         <form ref={formRef} onSubmit={submit} className="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg flex flex-col gap-4 hover:scale-[1.02] transition-transform duration-300">
-          {/* Hidden time field */}
           <input type="hidden" name="time" value={new Date().toLocaleString()} />
 
           <input

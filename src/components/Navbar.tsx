@@ -1,5 +1,5 @@
 import { Menu, X, Moon, Sun, Github, Linkedin } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface NavbarProps {
   isDarkMode: boolean;
@@ -8,6 +8,7 @@ interface NavbarProps {
 
 const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState<string>('Home');
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -18,22 +19,33 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
     { name: 'Contact', href: '#contact' },
   ];
 
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.href);
+        if (section) {
+          const top = section.getBoundingClientRect().top + window.scrollY;
+          const bottom = top + section.clientHeight;
+          if (scrollPos >= top && scrollPos < bottom) setActive(link.name);
+        }
+      });
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-
-          {/* Logo */}
+          
+          {/* Logo with gradient animation */}
           <a
             href="#home"
-            className="text-3xl font-bold tracking-widest"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              background: 'linear-gradient(90deg, #3b82f6, #06b6d4, #a855f7)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              letterSpacing: '0.3em',
-            }}
+            className="text-3xl font-bold tracking-widest transition-all duration-500 transform hover:scale-105 hover:-translate-y-1 hover:shadow-lg bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500 bg-clip-text text-transparent animate-gradient bg-[length:300%_300%]"
+            style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '0.3em' }}
           >
             S H R E E
           </a>
@@ -44,9 +56,15 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-300 transition-colors duration-200 font-medium"
+                className={`relative text-gray-700 dark:text-gray-300 font-medium transition-colors duration-200 hover:text-blue-600 dark:hover:text-cyan-300`}
               >
                 {link.name}
+                {/* Animated underline */}
+                <span
+                  className={`absolute left-0 -bottom-1 h-0.5 w-0 bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500 transition-all duration-300 ${
+                    active === link.name ? 'w-full' : 'group-hover:w-full'
+                  }`}
+                />
               </a>
             ))}
 
@@ -56,7 +74,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
                 href="https://github.com/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -65,7 +83,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
                 href="https://www.linkedin.com/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -77,11 +95,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 aria-label="Toggle dark mode"
               >
-                {isDarkMode ? (
-                  <Sun className="w-5 h-5 text-yellow-500" />
-                ) : (
-                  <Moon className="w-5 h-5 text-gray-700" />
-                )}
+                {isDarkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-700" />}
               </button>
             </div>
           </div>
@@ -93,11 +107,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? (
-                <Sun className="w-5 h-5 text-yellow-500" />
-              ) : (
-                <Moon className="w-5 h-5 text-gray-700" />
-              )}
+              {isDarkMode ? <Sun className="w-5 h-5 text-yellow-500" /> : <Moon className="w-5 h-5 text-gray-700" />}
             </button>
 
             <button
@@ -128,6 +138,19 @@ const Navbar = ({ isDarkMode, setIsDarkMode }: NavbarProps) => {
           </div>
         </div>
       )}
+
+      <style>
+        {`
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          .animate-gradient {
+            animation: gradientShift 5s ease infinite;
+          }
+        `}
+      </style>
     </nav>
   );
 };

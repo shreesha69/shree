@@ -3,33 +3,12 @@ import { FiExternalLink } from 'react-icons/fi';
 type Cert = {
   name: string;
   issuer?: string;
-  date?: string;
-  icon?: string; // path to certificate logo
-  link?: string; // link to PDF or online certificate
+  date?: string; // year
+  icon?: string; 
+  link?: string; 
 };
 
 const certs: Cert[] = [
-  {
-    name: 'JLPT N4',
-    issuer: 'Japanese Language Proficiency Test',
-    date: '2025',
-    icon: '/assets/icons/badge.png',
-    link: 'https://drive.google.com/file/d/1NPJ2Xite-OCCAV48GaSFpB8f-Yz6DTbS/view?usp=sharing',
-  },
-  {
-    name: 'NPTEL DBMS',
-    issuer: 'NPTEL',
-    date: '2024',
-    icon: '/assets/icons/badge.png',
-    link: 'https://drive.google.com/file/d/1moDwGVQD0kJoVj6o7UQGa7HIqdzThW0X/view?usp=sharing',
-  },
-  {
-    name: 'AWS Cloud Practitioner',
-    issuer: 'Amazon',
-    date: '2024',
-    icon: '/assets/icons/badge.png',
-    link: 'https://drive.google.com/file/d/1Xk49Zwt-1a4ha7C4v-R6AfwW7E_cWKeN/view?usp=sharing',
-  },
   {
     name: 'HTML & CSS Internship',
     issuer: 'Internship',
@@ -44,7 +23,31 @@ const certs: Cert[] = [
     icon: '/assets/icons/badge.png',
     link: 'https://drive.google.com/file/d/1L554dNvekxryKZ1nNic7NMpwaKLrLIni/view?usp=sharing',
   },
+  {
+    name: 'NPTEL DBMS',
+    issuer: 'NPTEL',
+    date: '2024',
+    icon: '/assets/icons/badge.png',
+    link: 'https://drive.google.com/file/d/1moDwGVQD0kJoVj6o7UQGa7HIqdzThW0X/view?usp=sharing',
+  },
+  {
+    name: 'JLPT N4',
+    issuer: 'Japanese Language Proficiency Test',
+    date: '2025',
+    icon: '/assets/icons/badge.png',
+    link: 'https://drive.google.com/file/d/1NPJ2Xite-OCCAV48GaSFpB8f-Yz6DTbS/view?usp=sharing',
+  },
+  {
+    name: 'AWS Cloud Practitioner',
+    issuer: 'Amazon',
+    date: '2025',
+    icon: '/assets/icons/badge.png',
+    link: 'https://drive.google.com/file/d/1Xk49Zwt-1a4ha7C4v-R6AfwW7E_cWKeN/view?usp=sharing',
+  },
 ];
+
+// Sort certificates by ascending date
+certs.sort((a, b) => (parseInt(a.date || '0') - parseInt(b.date || '0')));
 
 const Certificates = () => {
   return (
@@ -52,7 +55,7 @@ const Certificates = () => {
       id="certificates"
       className="relative py-20 px-4 overflow-hidden bg-white dark:bg-gray-800"
     >
-      {/* Subtle animated background (like gentle waves) */}
+      {/* Subtle animated background */}
       <div className="absolute inset-0 -z-10 opacity-20">
         <div className="w-full h-full bg-[radial-gradient(circle_at_30%_30%,_#93c5fd,_transparent_60%)] animate-wave"></div>
       </div>
@@ -69,19 +72,13 @@ const Certificates = () => {
           >
             {c.icon && (
               <div className="bg-blue-50 dark:bg-gray-800 p-3 rounded-full mb-3">
-                <img
-                  src={c.icon}
-                  alt={c.name}
-                  className="w-16 h-16 object-contain"
-                />
+                <img src={c.icon} alt={c.name} className="w-16 h-16 object-contain" />
               </div>
             )}
             <div className="font-semibold text-blue-600 dark:text-cyan-300 mb-1">
               {c.name}
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-300">
-              {c.issuer}
-            </div>
+            <div className="text-sm text-gray-600 dark:text-gray-300">{c.issuer}</div>
             <div className="text-xs text-gray-400 mt-1">{c.date}</div>
             {c.link && (
               <a
