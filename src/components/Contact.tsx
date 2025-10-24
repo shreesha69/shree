@@ -34,7 +34,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-20 px-4 max-w-6xl mx-auto overflow-hidden">
+    <section
+      id="contact"
+      className="relative py-20 px-4 max-w-6xl mx-auto overflow-hidden scroll-mt-20"
+    >
       {/* Background Glow */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-100 via-cyan-100 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 animate-pulse-slow rounded-3xl"></div>
 

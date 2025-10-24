@@ -2,7 +2,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-800"
+      className="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 scroll-mt-20"
     >
       {/* Animated soft wave background */}
       <div className="absolute inset-0 -z-10 opacity-20">

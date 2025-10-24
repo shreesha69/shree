@@ -12,6 +12,7 @@ const Footer = () => {
       {/* Nav Tabs */}
       <div className="flex justify-center gap-6 mb-6 flex-wrap">
         <a href="#home" className="hover:text-blue-600 dark:hover:text-cyan-400 font-medium transition">Home</a>
+        <a href="#about" className="hover:text-blue-600 dark:hover:text-cyan-400 font-medium transition">About</a>
         <a href="#skills" className="hover:text-blue-600 dark:hover:text-cyan-400 font-medium transition">Skills</a>
         <a href="#projects" className="hover:text-blue-600 dark:hover:text-cyan-400 font-medium transition">Projects</a>
         <a href="#certificates" className="hover:text-blue-600 dark:hover:text-cyan-400 font-medium transition">Certificates</a>
@@ -45,6 +46,7 @@ const Footer = () => {
 
       <style>
         {`
+          /* Floating glow animation for the background circle */
           @keyframes pulse-slow {
             0%, 100% { opacity: 0.3; }
             50% { opacity: 0.6; }
@@ -53,16 +55,19 @@ const Footer = () => {
             animation: pulse-slow 6s ease-in-out infinite;
           }
 
+          /* Bounce animation for quote */
           @keyframes bounce-slow {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
           }
 
+          /* Glow effect for quote text */
           @keyframes glow {
             0%, 100% { text-shadow: 0 0 5px #3b82f6, 0 0 10px #06b6d4; }
             50% { text-shadow: 0 0 10px #8b5cf6, 0 0 20px #3b82f6; }
           }
 
+          /* Combine bounce + glow for quote */
           .quote-glow {
             animation: bounce-slow 3s ease-in-out infinite, glow 4s ease-in-out infinite;
           }

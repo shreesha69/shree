@@ -33,7 +33,10 @@ const Typing = ({ texts = roles, speed = 120, pause = 1500 }: { texts?: string[]
 
 const Hero = () => {
   return (
-    <section id="home" className="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-900">
+    <section
+      id="home"
+      className="h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-900 scroll-mt-20"
+    >
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
 
         {/* Left Content */}

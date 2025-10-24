@@ -8,7 +8,6 @@ import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 

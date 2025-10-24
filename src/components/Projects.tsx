@@ -15,8 +15,8 @@ const projects: Project[] = [
     description: 'My personal portfolio built with React, Tailwind CSS, and deployed online.',
     tags: ['React', 'Tailwind', 'Vite'],
     image: '/assets/portfolio.png',
-    github: 'https://github.com/private', // placeholder link
-    link: 'https://mukhashree-s.vercel.app/', // Live Vercel link
+    github: 'https://github.com/private',
+    link: 'https://mukhashree-s.vercel.app/',
   },
   {
     title: 'Travel Website',
@@ -24,7 +24,7 @@ const projects: Project[] = [
     tags: ['React', 'CSS', 'API'],
     image: '/assets/travel-site.jpeg',
     github: 'https://github.com/shreesha69/Travel-site',
-    link: 'https://nihon-no-ryokou.vercel.app/', // Live Travel site
+    link: 'https://nihon-no-ryokou.vercel.app/',
   },
 ];
 
@@ -32,7 +32,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-20 px-4 bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-800"
+      className="py-20 px-4 bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 scroll-mt-20"
     >
       <h2 className="text-3xl font-bold text-center text-gradient mb-12 tracking-widest">Projects</h2>
 
@@ -42,7 +42,6 @@ const Projects = () => {
             key={p.title}
             className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
           >
-            {/* Project Image */}
             {p.image && (
               <img
                 src={p.image}
@@ -57,7 +56,6 @@ const Projects = () => {
               </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{p.description}</p>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-2">
                 {p.tags.map((tag) => (
                   <span
@@ -69,7 +67,6 @@ const Projects = () => {
                 ))}
               </div>
 
-              {/* Links */}
               <div className="flex gap-4 mt-3">
                 {p.github && (
                   <a

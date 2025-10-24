@@ -3,7 +3,7 @@ import { FiExternalLink } from 'react-icons/fi';
 type Cert = {
   name: string;
   issuer?: string;
-  date?: string; // year
+  date?: string; 
   icon?: string; 
   link?: string; 
 };
@@ -53,7 +53,7 @@ const Certificates = () => {
   return (
     <section
       id="certificates"
-      className="relative py-20 px-4 overflow-hidden bg-white dark:bg-gray-800"
+      className="relative py-20 px-4 overflow-hidden bg-white dark:bg-gray-800 scroll-mt-20"
     >
       {/* Subtle animated background */}
       <div className="absolute inset-0 -z-10 opacity-20">
