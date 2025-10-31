@@ -11,8 +11,18 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: 'The Kanjiverse',
+    description:
+      'An interactive N5 Kanji learning web app built with React, TypeScript, and Tailwind CSS for a smooth and responsive learning experience.',
+    tags: ['React', 'TypeScript', 'TailwindCSS', 'Framer Motion'],
+    image: '/assets/hikari.jpg',
+    github: 'https://github.com/shreesha69/Kanjiverse',
+    link: 'https://thekanjiverse.netlify.app/',
+  },
+  {
     title: 'Portfolio Website',
-    description: 'My personal portfolio built with React, Tailwind CSS, and deployed online.',
+    description:
+      'My personal portfolio built with React, Tailwind CSS, and deployed online.',
     tags: ['React', 'Tailwind', 'Vite'],
     image: '/assets/portfolio.png',
     github: 'https://github.com/private',
@@ -20,7 +30,8 @@ const projects: Project[] = [
   },
   {
     title: 'Travel Website',
-    description: 'A responsive travel booking website built with modern web technologies.',
+    description:
+      'A responsive travel booking website built with modern web technologies.',
     tags: ['React', 'CSS', 'API'],
     image: '/assets/travel-site.jpeg',
     github: 'https://github.com/shreesha69/Travel-site',
@@ -34,19 +45,21 @@ const Projects = () => {
       id="projects"
       className="py-20 px-4 bg-gradient-to-b from-blue-50 via-cyan-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 scroll-mt-20"
     >
-      <h2 className="text-3xl font-bold text-center text-gradient mb-12 tracking-widest">Projects</h2>
+      <h2 className="text-3xl font-bold text-center text-gradient mb-12 tracking-widest">
+        Projects
+      </h2>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      <div className="max-w-6xl mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((p) => (
           <div
             key={p.title}
-            className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300"
+            className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-1 hover:shadow-xl transition duration-500"
           >
             {p.image && (
               <img
                 src={p.image}
                 alt={p.title}
-                className="w-full h-56 object-cover hover:scale-110 transition-transform duration-500"
+                className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500"
               />
             )}
 
@@ -54,7 +67,9 @@ const Projects = () => {
               <h3 className="text-xl font-semibold text-blue-600 dark:text-cyan-300 tracking-wide">
                 {p.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{p.description}</p>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm sm:text-base">
+                {p.description}
+              </p>
 
               <div className="flex flex-wrap gap-2 mt-2">
                 {p.tags.map((tag) => (
