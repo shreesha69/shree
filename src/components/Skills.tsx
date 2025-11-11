@@ -8,6 +8,7 @@ const technical = [
   { name: 'Power BI', icon: BarChart },
   { name: 'JS', icon: Code },
   { name: 'Prompt Engineering', icon: Code },
+  { name: 'Git & VS Code', icon: Code },
 ];
 
 const soft = ['Empathy', 'Active Listening', 'Collaboration', 'Problem Solving'];
@@ -119,23 +120,25 @@ const Skills = () => {
             animation: bubble linear infinite;
           }
 
-          /* Skills hover effect: glow + bounce for all skills */
-          @keyframes skill-bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-          }
+          /* Skills idle glow + hover glow + bounce */
           .skill-effect {
             transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 5px rgba(59, 130, 246, 0.3), 0 0 10px rgba(6, 182, 212, 0.2);
           }
           .skill-effect:hover {
             animation: skill-bounce 1s ease-in-out infinite;
             box-shadow: 0 0 15px #3b82f6, 0 0 25px #06b6d4;
           }
+          @keyframes skill-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+          }
 
-          /* Responsive: smaller padding on mobile */
+          /* Responsive adjustments */
           @media (max-width: 640px) {
             .skill-effect {
               padding: 3px 8px;
+              box-shadow: 0 0 3px rgba(59, 130, 246, 0.2), 0 0 6px rgba(6, 182, 212, 0.15);
             }
           }
         `}

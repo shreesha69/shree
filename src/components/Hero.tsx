@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 
-const roles = ['Web Developer', 'Technical Support Engineer', 'Cloud Enthusiast', 'Japanese Learner'];
+const roles = [
+  'Code Crafter',
+  'Web Developer',
+  'Database Designer',
+  'Japanese Enthusiast'
+];
+
 
 const Typing = ({ texts = roles, speed = 120, pause = 1500 }: { texts?: string[]; speed?: number; pause?: number }) => {
   const [index, setIndex] = useState(0);
