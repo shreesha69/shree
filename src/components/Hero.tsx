@@ -79,7 +79,7 @@ const Hero = () => {
               View Projects
             </a>
             <a
-              href="/assets/resume.pdf"
+              href="./assets/resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-50 dark:hover:bg-gray-800 transition"
