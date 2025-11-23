@@ -14,7 +14,9 @@ const About = () => {
       </h2>
 
       <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto relative z-10 text-justify">
-        I am a passionate IT professional with expertise in Java, MySQL, and Web Development, always eager to learn and explore new technologies like AWS and Power BI. I thrive in collaborative environments, bringing empathy, active listening, and effective communication to every project. Beyond coding, I enjoy creative pursuits such as sketching, which fuel my imagination and attention to detail. I am committed to building reliable, impactful software solutions that make a difference and continuously enhancing my skills to contribute meaningfully to any team or project.
+        I am a passionate IT professional with expertise in Java, MySQL, and Web Development, always eager to learn and explore new technologies like AWS and Power BI. I am{" "}
+        <span className="text-gradient font-semibold">JLPT N4 certified</span> and currently{" "}
+        <span className="text-gradient font-semibold">pursuing JLPT N3</span>, expanding my interest in Japanese language and culture to explore opportunities in global and Japan-related roles. I thrive in collaborative environments, bringing empathy, active listening, and effective communication to every project. Beyond coding, I enjoy creative pursuits such as sketching, which fuel my imagination and attention to detail. I am committed to building reliable, impactful software solutions and continuously enhancing my skills to contribute meaningfully to any team or project.
       </p>
 
       <style>
