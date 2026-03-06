@@ -18,25 +18,8 @@ const projects: Project[] = [
     image: '/assets/hikari.jpg',
     github: 'https://github.com/shreesha69/Kanjiverse',
     link: 'https://thekanjiverse.netlify.app/',
-  },
-  {
-    title: 'Portfolio Website',
-    description:
-      'My personal portfolio built with React, Tailwind CSS, and deployed online.',
-    tags: ['React', 'Tailwind', 'Vite'],
-    image: '/assets/portfolio.png',
-    github: 'https://github.com/private',
-    link: 'https://mukhashree-s.vercel.app/',
-  },
-  {
-    title: 'Travel Website',
-    description:
-      'A responsive travel booking website built with modern web technologies.',
-    tags: ['React', 'CSS', 'API'],
-    image: '/assets/travel-site.jpeg',
-    github: 'https://github.com/shreesha69/Travel-site',
-    link: 'https://nihon-no-ryokou.vercel.app/',
-  },
+  }
+ 
 ];
 
 const Projects = () => {
